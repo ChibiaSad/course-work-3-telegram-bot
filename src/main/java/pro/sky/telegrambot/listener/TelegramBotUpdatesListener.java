@@ -24,11 +24,13 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
 
     @PostConstruct
     public void init() {
+        logger.debug("method init started");
         telegramBot.setUpdatesListener(this);
     }
 
     @Override
     public int process(List<Update> updates) {
+        logger.debug("method process started");
         updates.forEach(update -> {
             logger.info("Processing update: {}", update);
             String text = update.message().text();
